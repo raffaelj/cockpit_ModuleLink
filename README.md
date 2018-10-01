@@ -8,7 +8,7 @@ Copy this addon to `path/to/cockpit/addons/ModuleLink`
 
 Create a new collection with a modulelink field
 
-Do not name a field "link". Weird things may happen, see also: [#590](https://github.com/agentejo/cockpit/issues/590). The issue was closed, but it still happens, even without the ModuleLink addon.
+**Do not name a field "link".** Weird things may happen, see also: [#590](https://github.com/agentejo/cockpit/issues/590). The issue was closed, but it still happens, even without the ModuleLink addon.
 
 ## Field Options
 
@@ -31,8 +31,9 @@ or:
 }
 ```
 
-filter default: all entries, values must match exact
-display default: label || name
+**filter default:** all entries, values must match exact
+
+**display default:** label || name
 
 ## Request
 
@@ -42,7 +43,6 @@ to populate nested module links add:
 
 ```json
 {
-  // normal options,
   "populate":"nonsense",
   "populate_module":"1"
 }
@@ -50,7 +50,7 @@ to populate nested module links add:
 
 "populate" must exist to trigger the custom _populate function. `"populate":"0"` would cause false too early, but `"populate":"anystring"` is a small hack to still call the method without resolving collection-links.
 
-Be careful with populating too deep if you link in circles. You could produce endless loops...
+**Be careful with populating too deep** if you link in circles. You could produce endless loops...
 
 ## Output
 
@@ -80,3 +80,9 @@ without population:
         }
     ]
 ```
+
+## Screenshots
+
+![modulelink01](https://user-images.githubusercontent.com/13042193/46308476-0bf51480-c5ba-11e8-84ab-0d75ec02d633.png)
+
+![modulelink02](https://user-images.githubusercontent.com/13042193/46308478-0bf51480-c5ba-11e8-80cb-075ca388f8f9.png)
