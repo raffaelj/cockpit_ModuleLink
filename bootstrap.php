@@ -22,6 +22,24 @@ $app->module('collections')->extend([
 
 ]);
 
+$app->module('collections')->extend([
+    'getModuleData' => function($module, $options = []) {
+        return $this->find($module, $options);
+    }
+]);
+
+$app->module('singletons')->extend([
+    'getModuleData' => function($module, $options = []) {
+        return $this->getData($module, $options);
+    }
+]);
+
+$app->module('forms')->extend([
+    'getModuleData' => function($module, $options = []) {
+        return $this->find($module, $options);
+    }
+]);
+
 
 function cockpit_populate_module(&$items, $maxlevel = -1, $level = 0, $fieldsFilter = []) {
 
@@ -41,7 +59,7 @@ function cockpit_populate_module(&$items, $maxlevel = -1, $level = 0, $fieldsFil
 
         if (isset($v['_id'], $v['module'], $v['name'], $v['display'])) {
             $link = $v['name'];
-            $items[$k] = cockpit('collections')->find($v['name']);
+            $items[$k] = cockpit($v['module'])->getModuleData($v['name']);
             $items[$k]['_modulelink'] = $link;
             $items[$k] = cockpit_populate_module($items[$k], $maxlevel, $level, $fieldsFilter);
         }
