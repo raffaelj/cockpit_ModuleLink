@@ -9,7 +9,8 @@ $app->module('collections')->extend([
             return $items;
         }
 
-        $populate_module = $this->app->param('populate_module');
+        // mini hack to populate 1 when option passed via function and param is not available
+        $populate_module = $this->app->param('populate_module') ?? ($maxlevel === false ? 1 : false);
 
         if (isset($populate_module) && is_numeric($populate_module)) {
             $items = cockpit_populate_module($items, intval($populate_module), 0, $fieldsFilter);
