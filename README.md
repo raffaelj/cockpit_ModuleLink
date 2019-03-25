@@ -2,7 +2,7 @@
 
 ModuleLink Field for [Cockpit CMS](https://github.com/agentejo/cockpit)
 
-work in progress
+This addon is experimental and I'm not sure, if or when I'll work on it again.
 
 ## Installation
 
