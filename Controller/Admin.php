@@ -3,7 +3,7 @@
 namespace ModuleLink\Controller;
 
 class Admin extends \Cockpit\AuthController {
-    
+
     public function index() {
 
         return $this->render('modulelink:views/index.php', compact('modules'));
