@@ -4,7 +4,16 @@ ModuleLink Field for [Cockpit CMS](https://github.com/agentejo/cockpit)
 
 work in progress
 
-Copy this addon to `path/to/cockpit/addons/ModuleLink`
+## Installation
+
+Copy this repository into `/addons` and name it `ModuleLink` or
+
+```bash
+cd path/to/cockpit
+git clone https://github.com/raffaelj/cockpit_ModuleLink.git addons/ModuleLink
+```
+
+## Usage
 
 Create a new collection with a modulelink field
 
