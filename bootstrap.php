@@ -85,7 +85,7 @@ function cockpit_populate_module(&$items, $maxlevel = -1, $level = 0, $fieldsFil
 
         if (isset($v['_id'], $v['module'], $v['name'], $v['display'])) {
             $link = $v['name'];
-            $items[$k] = cockpit($v['module'])->getModuleData($v['name']);
+            $items[$k] = cockpit($v['module'])->getModuleData($v['name'], ['fieldsFilter' => $fieldsFilter]);
             $items[$k]['_modulelink'] = $link;
             $items[$k] = cockpit_populate_module($items[$k], $maxlevel, $level, $fieldsFilter);
         }
