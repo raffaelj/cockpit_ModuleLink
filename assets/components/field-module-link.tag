@@ -21,7 +21,7 @@ App.Utils.renderer.modulelink = function(v) {
 
                 <i class="uk-icon-{ parent.id(option._id,parent.selected)!==-1 ? 'circle':'circle-o' } uk-margin-small-right"></i>
 
-                <img class="uk-margin-small-right uk-svg-adjust" src="{ option.icon ? App['base_route'] + '/assets/app/media/icons/' + option.icon : App['base_route'] + '/modules/' + opts.module + '/icon.svg'}" width="18px" alt="icon" style="color:{ option.color }" data-uk-svg>
+                <img class="uk-margin-small-right uk-svg-adjust" src="{ option.icon ? App['base_route'] + '/assets/app/media/icons/' + option.icon : App['base_route'] + '/modules/' + (opts.module.charAt(0).toUpperCase() + opts.module.slice(1)) + '/icon.svg'}" width="18px" alt="icon" style="color:{ option.color }" data-uk-svg>
 
                 { option[opts.display] || option.label || option.name }{ option.description ? ' | ' + option.description : '' }
 
@@ -36,8 +36,6 @@ App.Utils.renderer.modulelink = function(v) {
     <script>
 
         var $this = this;
-
-        // console.log(opts);
 
         this.selected = [];
         this.options = [];
@@ -54,7 +52,6 @@ App.Utils.renderer.modulelink = function(v) {
 
             App.request('/modulelink/get', {module:opts.module,options:options}).then(function(data){
                 $this.options = data;
-                // console.log(data);
                 $this.update();
             });
 
